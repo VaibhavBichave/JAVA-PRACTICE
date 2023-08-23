@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="AmmorDetail.java|CaesarCipherDecrpt.java|CaesarCipherEncrpt.java|DBConnect.java|DES.java|Decrpt_Caesar.java|EasySplitter.java|Encrpt_Caesar.java|Homepage.java|Item_Entry.java|JEditorPaneTest.java|Login.java|New_Soldier_entry.java|PolyTrans.java|PolyTransMain.java|RailFence.java|RailFenceGui.java|Recevie_message.java|Send_Message.java|Splash.java|sample.java|stock_entry.java" kind="src" path="src">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Program Files/Java/project/Military Networks/src"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/CDC-1.0%Foundation-1.0">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="E:/Share Doc Industrial Training/random.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre8/lib/rt.jar"/>
+	<classpathentry kind="lib" path="E:/Share Doc Industrial Training/mysql-connector-java-5.1.24-bin.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
