@@ -1,8 +1,9 @@
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
-public class sample extends JFrame{
-	public static void main(String arg[])throws Exception {
+
+public class sample extends JFrame {
+    public static void main(String arg[]) throws Exception {
         new sample();
     }
 
@@ -14,13 +15,14 @@ public class sample extends JFrame{
         pane.addHyperlinkListener(new HyperlinkListener() {
             public void hyperlinkUpdate(HyperlinkEvent r) {
                 try {
-                    if(r.getEventType() == HyperlinkEvent.EventType.ACTIVATED)
+                    if (r.getEventType() == HyperlinkEvent.EventType.ACTIVATED)
                         finalpane.setPage(r.getURL());
-                } catch(Exception e) {}
+                } catch (Exception e) {
+                }
             }
         });
         setContentPane(new JScrollPane(pane));
-        setSize(1000,1000);
+        setSize(1000, 1000);
         setVisible(true);
     }
 }

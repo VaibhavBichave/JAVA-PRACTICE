@@ -43,7 +43,6 @@ import javax.swing.*;
 import java.net.*;
 import javax.xml.*;*/
 
-
 import javax.xml.xpath.*;
 import java.awt.*;
 import javax.swing.*;
@@ -94,10 +93,6 @@ public class Homepage extends JFrame {
 	private JSeparator separator_1;
 	private JMenuBar menuBar;
 
-	
-	
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -107,7 +102,7 @@ public class Homepage extends JFrame {
 				try {
 					Homepage frame = new Homepage();
 					frame.setVisible(true);
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -118,46 +113,41 @@ public class Homepage extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Homepage()
-	{
-		setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Image\\Military_Network\\military-wallpaper-6667-6914-hd-wallpapers.jpg"));
+	public Homepage() {
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage("D:\\Image\\Military_Network\\military-wallpaper-6667-6914-hd-wallpapers.jpg"));
 		setTitle("Main Window");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		
+
 		menuBar = new JMenuBar();
 		menuBar.setFont(new Font("Arial", Font.BOLD, 18));
 		setJMenuBar(menuBar);
-		
+
 		mnNewMenu = new JMenu("Server");
 		menuBar.add(mnNewMenu);
-		
+
 		mntmStartServer = new JMenuItem("Start Server");
 		mntmStartServer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				try
-				{
-					//v Runtime runTime = Runtime.getRuntime();
-					//v Process process = runTime.exec("C:\\xampp\\xampp-control.exe");
-				}
-				catch (Exception e) {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					// v Runtime runTime = Runtime.getRuntime();
+					// v Process process = runTime.exec("C:\\xampp\\xampp-control.exe");
+				} catch (Exception e) {
 					// TODO: handle exception
 				}
 			}
 		});
 		mnNewMenu.add(mntmStartServer);
-		
+
 		mntmStopServer = new JMenuItem("Stop Server");
 		mnNewMenu.add(mntmStopServer);
-		
+
 		mntmGetServerAddress = new JMenuItem("Get Server Address");
 		mntmGetServerAddress.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0)
-			{
-				try 
-				{
-					JOptionPane.showMessageDialog(null,Inet4Address.getLocalHost().getHostAddress());
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					JOptionPane.showMessageDialog(null, Inet4Address.getLocalHost().getHostAddress());
 				} catch (UnknownHostException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -165,10 +155,10 @@ public class Homepage extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmGetServerAddress);
-		
+
 		separator_1 = new JSeparator();
 		mnNewMenu.add(separator_1);
-		
+
 		mntmExit = new JMenuItem("Exit");
 		mntmExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -176,42 +166,39 @@ public class Homepage extends JFrame {
 			}
 		});
 		mnNewMenu.add(mntmExit);
-		
+
 		mnEncrypt = new JMenu("Encrypt");
 		menuBar.add(mnEncrypt);
-		
+
 		mnKeyFunction = new JMenu("Message");
 		mnEncrypt.add(mnKeyFunction);
-		
+
 		mntmAes = new JMenuItem("Encrypt");
 		mntmAes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				Encrpt_Caesar caesar=new Encrpt_Caesar();
+			public void actionPerformed(ActionEvent arg0) {
+				Encrpt_Caesar caesar = new Encrpt_Caesar();
 				caesar.setVisible(true);
 				center_panel.removeAll();
 				center_panel.add(caesar);
 			}
 		});
 		mnKeyFunction.add(mntmAes);
-		
+
 		mntmNewMenuItem = new JMenuItem("Decrypt");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				Decrpt_Caesar caesar=new Decrpt_Caesar();
+			public void actionPerformed(ActionEvent arg0) {
+				Decrpt_Caesar caesar = new Decrpt_Caesar();
 				caesar.setVisible(true);
 				center_panel.removeAll();
 				center_panel.add(caesar);
 			}
 		});
 		mnKeyFunction.add(mntmNewMenuItem);
-		
+
 		mntmCeasorFunction = new JMenuItem("Rail Fence");
 		mntmCeasorFunction.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				RailFenceGui fenceGui=new RailFenceGui();
+			public void actionPerformed(ActionEvent arg0) {
+				RailFenceGui fenceGui = new RailFenceGui();
 				fenceGui.setVisible(true);
 				center_panel.removeAll();
 				center_panel.add(fenceGui);
@@ -220,168 +207,150 @@ public class Homepage extends JFrame {
 			}
 		});
 		mnEncrypt.add(mntmCeasorFunction);
-		
+
 		mnLocation = new JMenu("Location");
 		menuBar.add(mnLocation);
-		
+
 		mntmMaps = new JMenuItem("Maps");
 		mntmMaps.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				String url = "https://www.google.co.in/maps";
-				if(Desktop.isDesktopSupported()){
-				Desktop desktop = Desktop.getDesktop();
-				try {
-				desktop.browse(new URI(url));
-				} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-				}
-				}else{
-				Runtime runtime = Runtime.getRuntime();
-				try {
-				runtime.exec("xdg-open " + url);
-				} catch (Exception e3) {
-				// TODO Auto-generated catch block
-				e3.printStackTrace();
-				}
+				if (Desktop.isDesktopSupported()) {
+					Desktop desktop = Desktop.getDesktop();
+					try {
+						desktop.browse(new URI(url));
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				} else {
+					Runtime runtime = Runtime.getRuntime();
+					try {
+						runtime.exec("xdg-open " + url);
+					} catch (Exception e3) {
+						// TODO Auto-generated catch block
+						e3.printStackTrace();
+					}
 				}
 			}
 		});
 		mnLocation.add(mntmMaps);
-		
+
 		mntmSearchCity = new JMenuItem("Search City");
 		mntmSearchCity.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
-				try
-				{
-						String postcode=JOptionPane.showInputDialog(null,"Enter City Name Hear ","Search ",JOptionPane.QUESTION_MESSAGE);
-						String latLongs[] = getLatLongPositions(postcode);
-					    System.out.println("Latitude: "+latLongs[0]+" and Longitude: "+latLongs[1]);
-						String url = "https://www.latlong.net/c/?lat="+latLongs[0]+"&long="+latLongs[1]+"";
-				if(Desktop.isDesktopSupported())
-				{
-					Desktop desktop = Desktop.getDesktop();
-					try 
-					{
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					String postcode = JOptionPane.showInputDialog(null, "Enter City Name Hear ", "Search ",
+							JOptionPane.QUESTION_MESSAGE);
+					String latLongs[] = getLatLongPositions(postcode);
+					System.out.println("Latitude: " + latLongs[0] + " and Longitude: " + latLongs[1]);
+					String url = "https://www.latlong.net/c/?lat=" + latLongs[0] + "&long=" + latLongs[1] + "";
+					if (Desktop.isDesktopSupported()) {
+						Desktop desktop = Desktop.getDesktop();
+						try {
 							desktop.browse(new URI(url));
-					} catch (Exception e1)
-					{
+						} catch (Exception e1) {
 							e1.printStackTrace();
-					}
-				}
-				else
-				{
+						}
+					} else {
 						Runtime runtime = Runtime.getRuntime();
-						try 
-						{
-								runtime.exec("xdg-open " + url);
-								
-						} catch (Exception e3) 
-						{
+						try {
+							runtime.exec("xdg-open " + url);
+
+						} catch (Exception e3) {
 							e3.printStackTrace();
 						}
-				}
-				}
-				catch (Exception e)
-				{
+					}
+				} catch (Exception e) {
 					// TODO: handle exception
 				}
 			}
 		});
 		mnLocation.add(mntmSearchCity);
-		
+
 		mnItem = new JMenu("Item");
 		menuBar.add(mnItem);
-		
+
 		mntmAddEquiment = new JMenuItem("Add Equiment");
 		mntmAddEquiment.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				center_panel.removeAll();
-				Item_Entry entry=new  Item_Entry();
+				Item_Entry entry = new Item_Entry();
 				entry.setVisible(true);
 				center_panel.add(entry);
 				repaint();
 				revalidate();
-				
+
 			}
 		});
 		mnItem.add(mntmAddEquiment);
-		
+
 		mntmStockEntry = new JMenuItem("Stock Entry");
 		mntmStockEntry.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				center_panel.removeAll();
-				stock_entry entry=new  stock_entry();
+				stock_entry entry = new stock_entry();
 				entry.setVisible(true);
 				center_panel.add(entry);
 				repaint();
 				revalidate();
-			
+
 			}
 		});
 		mnItem.add(mntmStockEntry);
-		
+
 		mnMessage = new JMenu("File Operation");
 		menuBar.add(mnMessage);
-		
+
 		mntmMenuitem = new JMenuItem("File Spilter");
 		mntmMenuitem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				center_panel.removeAll();
-				EasySplitter es=new EasySplitter();
+				EasySplitter es = new EasySplitter();
 				es.setVisible(true);
-				//v es.show();
-				es.setSize(700,470);
+				// v es.show();
+				es.setSize(700, 470);
 				center_panel.add(es);
 				repaint();
 				revalidate();
 			}
 		});
 		mnMessage.add(mntmMenuitem);
-		
+
 		mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
-		
+
 		mnUtility = new JMenu("Utility");
 		mnHelp.add(mnUtility);
-		
+
 		mntmCalulator = new JMenuItem("Calulator");
 		mnUtility.add(mntmCalulator);
-		
+
 		mntmNotepad = new JMenuItem("Notepad");
 		mnUtility.add(mntmNotepad);
-		
+
 		mntmMsPaint = new JMenuItem("Ms Paint");
 		mnUtility.add(mntmMsPaint);
-		
+
 		mntmAboutUs = new JMenuItem("About Us");
 		mnHelp.add(mntmAboutUs);
-		
+
 		mntmComment = new JMenuItem("Comment");
 		mnHelp.add(mntmComment);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
-		
-		
-		
-		
+
 		panel = new JPanel();
 		contentPane.add(panel, BorderLayout.WEST);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
-		
+
 		btnNewButton_1 = new JButton("Send Message");
 		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				center_panel.removeAll();
-				Send_Message e=new Send_Message();
+				Send_Message e = new Send_Message();
 				e.setVisible(true);
 				center_panel.add(e);
 				repaint();
@@ -392,13 +361,12 @@ public class Homepage extends JFrame {
 		btnNewButton_1.setBackground(Color.WHITE);
 		btnNewButton_1.setIcon(new ImageIcon("D:\\Image\\Military_Network\\send.png"));
 		panel.add(btnNewButton_1);
-		
+
 		btnNewButton_3 = new JButton("Retrive Message");
 		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) 
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				center_panel.removeAll();
-				Recevie_message rs=new Recevie_message();
+				Recevie_message rs = new Recevie_message();
 				rs.setVisible(true);
 				center_panel.add(rs);
 				repaint();
@@ -407,15 +375,15 @@ public class Homepage extends JFrame {
 		});
 		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 17));
 		btnNewButton_3.setBackground(Color.WHITE);
-		btnNewButton_3.setIcon(new ImageIcon("D:\\Image\\Military_Network\\b2cc37ffcc52e53e438cdfde85fed197-blue-message-box-icon-by-vexels.png"));
+		btnNewButton_3.setIcon(new ImageIcon(
+				"D:\\Image\\Military_Network\\b2cc37ffcc52e53e438cdfde85fed197-blue-message-box-icon-by-vexels.png"));
 		panel.add(btnNewButton_3);
-		
+
 		btnNewButton_2 = new JButton("Soldier Detail");
 		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				center_panel.removeAll();
-				New_Soldier_entry entry=new New_Soldier_entry();
+				New_Soldier_entry entry = new New_Soldier_entry();
 				entry.setVisible(true);
 				center_panel.add(entry);
 			}
@@ -424,81 +392,75 @@ public class Homepage extends JFrame {
 		btnNewButton_2.setBackground(Color.WHITE);
 		btnNewButton_2.setIcon(new ImageIcon("D:\\Image\\Military_Network\\206884.png"));
 		panel.add(btnNewButton_2);
-		
+
 		btnNewButton = new JButton("Armor Detail");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					AmmorDetail detail=new AmmorDetail();
-					detail.setVisible(true);
-					center_panel.removeAll();
-					center_panel.add(detail);
-					repaint();
-					revalidate();
+				AmmorDetail detail = new AmmorDetail();
+				detail.setVisible(true);
+				center_panel.removeAll();
+				center_panel.add(detail);
+				repaint();
+				revalidate();
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setIcon(new ImageIcon("D:\\Image\\Military_Network\\LAX_Range_Icon_Gun.png"));
 		panel.add(btnNewButton);
-		
-		
-		 center_panel = new JPanel()
-			{
-			    public void paintComponent(Graphics g)
-			    {
-			        Image img = new ImageIcon("D:\\Image\\Military_Network\\home_2.jpg").getImage();
-			        getContentPane().setLayout(null);
-			        g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-			    }
-			};
-		 center_panel.setBorder(new TitledBorder(null, "", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 255, 0)));
-		 contentPane.add(center_panel, BorderLayout.CENTER);
-		 center_panel.setLayout(null);
-		 
-		 JPanel panel_2 = new JPanel();
-		 panel_2.setBackground(SystemColor.activeCaption);
-		 contentPane.add(panel_2, BorderLayout.NORTH);
-		 
-		 JLabel lblNewLabel = new JLabel("Military Network ");
-		 lblNewLabel.setForeground(new Color(128, 0, 0));
-		 lblNewLabel.setFont(new Font("Monotype Corsiva", Font.BOLD, 50));
-		 panel_2.add(lblNewLabel);
-		
-		 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	      setBounds(0,0,screenSize.width, screenSize.height);
-		
-	
-		
+
+		center_panel = new JPanel() {
+			public void paintComponent(Graphics g) {
+				Image img = new ImageIcon("D:\\Image\\Military_Network\\home_2.jpg").getImage();
+				getContentPane().setLayout(null);
+				g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+			}
+		};
+		center_panel.setBorder(
+				new TitledBorder(null, "", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(51, 255, 0)));
+		contentPane.add(center_panel, BorderLayout.CENTER);
+		center_panel.setLayout(null);
+
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(SystemColor.activeCaption);
+		contentPane.add(panel_2, BorderLayout.NORTH);
+
+		JLabel lblNewLabel = new JLabel("Military Network ");
+		lblNewLabel.setForeground(new Color(128, 0, 0));
+		lblNewLabel.setFont(new Font("Monotype Corsiva", Font.BOLD, 50));
+		panel_2.add(lblNewLabel);
+
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		setBounds(0, 0, screenSize.width, screenSize.height);
+
 	}
-	public static String[] getLatLongPositions(String address) throws Exception
-	  {
-	    int responseCode = 0;
-	    String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
-	    URL url = new URL(api);
-	    HttpURLConnection httpConnection = (HttpURLConnection)url.openConnection();
-	    httpConnection.connect();
-	    responseCode = httpConnection.getResponseCode();
-	    if(responseCode == 200)
-	    {
-	      DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();;
-	      Document document = builder.parse(httpConnection.getInputStream());
-	      XPathFactory xPathfactory = XPathFactory.newInstance();
-	      XPath xpath = xPathfactory.newXPath();
-	      XPathExpression expr = xpath.compile("/GeocodeResponse/status");
-	      String status = (String)expr.evaluate(document, XPathConstants.STRING);
-	      if(status.equals("OK"))
-	      {
-	         expr = xpath.compile("//geometry/location/lat");
-	         String latitude = (String)expr.evaluate(document, XPathConstants.STRING);
-	         expr = xpath.compile("//geometry/location/lng");
-	         String longitude = (String)expr.evaluate(document, XPathConstants.STRING);
-	         return new String[] {latitude, longitude};
-	      }
-	      else
-	      {
-	         throw new Exception("Error from the API - response status: "+status);
-	      }
-	    }
-	    return null;
-	  }
+
+	public static String[] getLatLongPositions(String address) throws Exception {
+		int responseCode = 0;
+		String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8")
+				+ "&sensor=true";
+		URL url = new URL(api);
+		HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+		httpConnection.connect();
+		responseCode = httpConnection.getResponseCode();
+		if (responseCode == 200) {
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			;
+			Document document = builder.parse(httpConnection.getInputStream());
+			XPathFactory xPathfactory = XPathFactory.newInstance();
+			XPath xpath = xPathfactory.newXPath();
+			XPathExpression expr = xpath.compile("/GeocodeResponse/status");
+			String status = (String) expr.evaluate(document, XPathConstants.STRING);
+			if (status.equals("OK")) {
+				expr = xpath.compile("//geometry/location/lat");
+				String latitude = (String) expr.evaluate(document, XPathConstants.STRING);
+				expr = xpath.compile("//geometry/location/lng");
+				String longitude = (String) expr.evaluate(document, XPathConstants.STRING);
+				return new String[] { latitude, longitude };
+			} else {
+				throw new Exception("Error from the API - response status: " + status);
+			}
+		}
+		return null;
+	}
 }

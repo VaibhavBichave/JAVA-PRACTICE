@@ -10,8 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JWindow;
 
-public class Splash extends JWindow
-{
+public class Splash extends JWindow {
   private int duration;
 
   public Splash(int d) {
@@ -35,7 +34,7 @@ public class Splash extends JWindow
     // Build the splash screen
     JLabel label = new JLabel(new ImageIcon("D:\\Image\\Military_Network\\sp.gif"));
     JLabel copyrt = new JLabel("Welcome to Military Networks",
-       JLabel.CENTER);
+        JLabel.CENTER);
     copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 12));
     content.add(label, BorderLayout.CENTER);
     content.add(copyrt, BorderLayout.SOUTH);
@@ -46,26 +45,22 @@ public class Splash extends JWindow
     setVisible(true);
 
     // Wait a little while, maybe while loading resources
-    try 
-    {
-    	Thread.sleep(duration);
-    	} catch (Exception e)
-    	{
+    try {
+      Thread.sleep(duration);
+    } catch (Exception e) {
     }
 
     setVisible(false);
   }
 
-  public void showSplashAndExit()
-  {
-	  showSplash();
-	  dispose();
-	  Homepage e=new Homepage();
-	  e.setVisible(true);
+  public void showSplashAndExit() {
+    showSplash();
+    dispose();
+    Homepage e = new Homepage();
+    e.setVisible(true);
   }
 
-  public static void main(String[] args) 
-  {
+  public static void main(String[] args) {
     // Throw a nice little title page up on the screen first
     Splash splash = new Splash(10000);
     // Normally, we'd call splash.showSplash() and get on with the program.
@@ -73,5 +68,3 @@ public class Splash extends JWindow
     splash.showSplashAndExit();
   }
 }
-
-        

@@ -19,7 +19,6 @@ import java.sql.PreparedStatement;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 
-
 public class Item_Entry extends JInternalFrame {
 	private JPanel center_panel;
 	private JTextField txt_qty;
@@ -49,66 +48,63 @@ public class Item_Entry extends JInternalFrame {
 		setClosable(true);
 		setTitle("Item Entry");
 		setBounds(100, 100, 621, 381);
-		
-		center_panel = new JPanel()
-		{
-		    public void paintComponent(Graphics g)
-		    {
-		        Image img = new ImageIcon("D:\\Image\\Military_Network\\item.jpg").getImage();
-		        getContentPane().setLayout(null);
-		        g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
-		    }
+
+		center_panel = new JPanel() {
+			public void paintComponent(Graphics g) {
+				Image img = new ImageIcon("D:\\Image\\Military_Network\\item.jpg").getImage();
+				getContentPane().setLayout(null);
+				g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+			}
 		};
 		getContentPane().add(center_panel, BorderLayout.CENTER);
 		center_panel.setLayout(null);
-		
+
 		JLabel lblName = new JLabel("Name");
 		lblName.setForeground(new Color(255, 255, 224));
 		lblName.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblName.setBounds(77, 57, 86, 22);
 		center_panel.add(lblName);
-		
+
 		JLabel lblQuantity = new JLabel("Quantity");
 		lblQuantity.setForeground(new Color(255, 255, 224));
 		lblQuantity.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblQuantity.setBounds(77, 182, 86, 22);
 		center_panel.add(lblQuantity);
-		
+
 		comboBox = new JComboBox();
 		comboBox.setForeground(new Color(128, 0, 0));
 		comboBox.setFont(new Font("Tahoma", Font.BOLD, 15));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Guns", "Jackets", "Shoes", "Caps"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Guns", "Jackets", "Shoes", "Caps" }));
 		comboBox.setBounds(190, 123, 166, 22);
 		center_panel.add(comboBox);
-		
+
 		JLabel lblCatogories = new JLabel("Catogories");
 		lblCatogories.setForeground(new Color(255, 255, 224));
 		lblCatogories.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblCatogories.setBounds(77, 121, 86, 22);
 		center_panel.add(lblCatogories);
-		
+
 		txt_qty = new JTextField();
 		txt_qty.setForeground(new Color(128, 0, 0));
 		txt_qty.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txt_qty.setBounds(192, 185, 164, 22);
 		center_panel.add(txt_qty);
 		txt_qty.setColumns(10);
-		
+
 		txt_item_name = new JTextField();
 		txt_item_name.setForeground(new Color(128, 0, 0));
 		txt_item_name.setFont(new Font("Tahoma", Font.BOLD, 15));
 		txt_item_name.setColumns(10);
 		txt_item_name.setBounds(192, 60, 164, 22);
 		center_panel.add(txt_item_name);
-		
+
 		JButton btnSave = new JButton("Save");
 		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				try {
-					Connection con=DBConnect.getConnection();
-					PreparedStatement pst=con.prepareStatement("insert into equipment values(?,?,?)");
-					pst.setString(1,txt_item_name.getText().toString());
+					Connection con = DBConnect.getConnection();
+					PreparedStatement pst = con.prepareStatement("insert into equipment values(?,?,?)");
+					pst.setString(1, txt_item_name.getText().toString());
 					pst.setString(2, comboBox.getSelectedItem().toString());
 					pst.setInt(3, Integer.parseInt(txt_qty.getText().toString()));
 					pst.execute();
@@ -116,7 +112,7 @@ public class Item_Entry extends JInternalFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 					JOptionPane.showMessageDialog(null, "Already Exit Equiment");
-					}
+				}
 			}
 		});
 		btnSave.setBounds(229, 256, 89, 23);

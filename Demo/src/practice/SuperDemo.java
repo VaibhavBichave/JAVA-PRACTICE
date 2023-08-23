@@ -1,27 +1,28 @@
 package practice;
+
 class Vehicle {
     int maxSpeed;
     String defaultColour;
-    
-    Vehicle(){
+
+    Vehicle() {
         maxSpeed = 100;
         defaultColour = "White";
     }
-    
+
     void display() {
         System.out.println("This method is called from child class using 'super' keyword");
     }
 }
 
-class Car extends Vehicle{
+class Car extends Vehicle {
     int maxSpeed = 200;
     String brand;
-    
-    Car(){
+
+    Car() {
         super();
         brand = "Toyota";
     }
-    
+
     void displaySpeed() {
         System.out.println("Brand : " + brand);
         System.out.println("Vehicle Speed : " + super.maxSpeed);
@@ -32,8 +33,8 @@ class Car extends Vehicle{
 }
 
 public class SuperDemo {
-	public static void main(String args[]) {
-	        Car c = new Car();
-	        c.displaySpeed();
-	    }
-	}
+    public static void main(String args[]) {
+        Car c = new Car();
+        c.displaySpeed();
+    }
+}
